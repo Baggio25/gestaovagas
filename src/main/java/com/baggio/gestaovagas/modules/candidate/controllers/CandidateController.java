@@ -10,7 +10,7 @@ import com.baggio.gestaovagas.modules.candidate.CandidateEntity;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/candidate")
+@RequestMapping("/candidates")
 public class CandidateController {
   
   @PostMapping
