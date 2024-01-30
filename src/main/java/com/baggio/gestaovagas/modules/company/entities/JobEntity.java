@@ -34,7 +34,7 @@ public class JobEntity {
   private String level;
 
   @ManyToOne
-  @JoinColumn(name="company_id", insertable = false, updatable = false)
+  @JoinColumn(name="company_id")
   private CompanyEntity company;
 
   @Column(name = "created_at") 
