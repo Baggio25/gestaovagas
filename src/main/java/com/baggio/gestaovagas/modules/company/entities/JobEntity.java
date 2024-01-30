@@ -13,6 +13,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Entity(name = "job")
@@ -33,9 +34,13 @@ public class JobEntity {
   @NotBlank(message = "O campo [level] é obrigatório")
   private String level;
 
-  @ManyToOne
-  @JoinColumn(name="company_id")
-  private CompanyEntity company;
+  @ManyToOne()
+  @JoinColumn(name = "company_id", insertable = false, updatable = false)
+  private CompanyEntity companyEntity;
+
+  @NotNull(message = "O campo [companyId] é obrigatório")
+  @Column(name = "company_id", nullable = false)
+  private UUID companyId;
 
   @Column(name = "created_at") 
   private LocalDateTime createdAt;
